@@ -57,7 +57,13 @@ class ImageConverter:
 
   def convert_image(self):
     frames = self.process_image()
-    specter = ['  ', '::', 'cc', 'oo', '@@']
+    specter = ' :co@'
+    wide = self.options['wide']
+
+    chars = self.options['chars']
+    if chars != False:
+      specter = chars
+
     if self.options['reverse'] == True:
       specter = specter[::-1]
 
@@ -88,7 +94,7 @@ class ImageConverter:
           levels = []
           for level in contrast_levels:
             levels.append(abs(pixel_value - level))
-          character = specter[levels.index(min(levels))]
+          character = specter[levels.index(min(levels))] * wide
           string += character
 
       self.save_image(string)
