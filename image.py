@@ -57,7 +57,7 @@ class ImageConverter:
 
   def convert_image(self):
     frames = self.process_image()
-    specter = ' :co@'
+    specter = ' .:;+=xX$&'
     wide = self.options['wide']
 
     chars = self.options['chars']
