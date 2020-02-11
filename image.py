@@ -64,6 +64,9 @@ class ImageConverter:
     if chars != False:
       specter = chars
 
+    if self.options['contrast'] == True:
+      specter = ' ░▒▓█'
+
     if self.options['reverse'] == True:
       specter = specter[::-1]
 
@@ -96,6 +99,15 @@ class ImageConverter:
             levels.append(abs(pixel_value - level))
           character = specter[levels.index(min(levels))] * wide
           string += character
+
+      if self.options['rotate'] != False:
+        orientation = 1 if self.options['rotate'] == 'left' else -1
+        rotated = zip(*string.split('\n')[::orientation])
+        string = []
+        for row in rotated:
+          string.append(''.join(list(row)))
+
+        string = '\n'.join(string)
 
       self.save_image(string)
 
