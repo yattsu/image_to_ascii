@@ -20,15 +20,21 @@ Requests==2.22.0 <br>
 It accepts images and gifs. You can specify the path or link (ending in .jpg/.png/.gif ...) <br>
 Example: `python ascii.py /path/to/file.png` / `python ascii.py https://site.domain/file.gif` <br>
 
-You can specify the `scale`, `reverse`, `chars` and `wide` arguments <br>
+You can specify the `scale`, `reverse`, `chars`, `rotate`, `contrast` and `wide` arguments <br>
 `scale {integer}` - scales the source file to the integer specified <br>
 Example: `python ascii.py /path/to/file.gif scale 75` <br>
 `reverse` - swaps black&white for the given file <br>
 Example: `python ascii.py /path/to/file.gif reverse scale 10` <br>
 `chars {'string'}` - specifies the characters for conversion <br>
 Example: `python ascii.py /path/to/file.jpg chars ' $@B%8&WM#'` (default is ' :co@') <br>
+`rotate {'string'}` - rotates the characters by either -90 or 90 degrees; the accepted values are 'left' and 'right' <br>
+Example: `python ascii.py /path/to/file.jpg rotate left` <br>
+`contrast` - converts using these characters ' ░▒▓█'; this will override the `chars` arguments <br>
+Example: `python ascii.py /path/to/file.jpg contrast` <br>
 `wide {int}` - specifies how wide each cell will be <br>
 Example: `python ascii.py /path/to/file.jpg wide 3` (default is 2) <br>
+
+All arguments can be nested and combined
 
 ### show.py
 
